@@ -308,7 +308,43 @@ function randomWords(diff){
     "tropics", "coconut", "mango", "papaya", "bamboo", "hibiscus", "sunset", "sunrise", "rainfall", "lagoon", "reef", "toucan", "gecko", "parrotfish", "tigerbalm",
     "beachvolleyball", "waterski", "kitesurf", "beachparty", "tan", "scubadiving", "fishing", "canoeing", "yachting", "jetski", "seabreeze", "sandcastle", "beachtowel", "flipflops", "beachball"
 ];
-  var basicWords = ["cat", "dog", "sun", "moon", "star", "tree", "bird", "fish", "book", "road", "rain", "snow", "leaf", "wind", "sand", "rock", "hill", "lake", "river", "sea", "sky", "cloud", "grass", "flower", "fruit", "apple", "orange", "grape", "pear", "plum", "peach", "cherry", "berry", "melon", "corn", "rice", "bread", "milk", "cheese", "egg", "meat", "fish", "cake", "pie", "tea", "coffee", "juice", "water", "soda", "chair", "table", "bed", "sofa", "lamp", "door", "window", "house", "room", "wall", "floor", "roof", "yard", "garden", "fence", "gate", "path", "road", "street", "town", "city", "school", "class", "teacher", "student", "book", "pen", "pencil", "paper", "note", "exam", "test", "grade", "lesson", "study", "learn", "read", "write", "spell", "count", "add", "subtract", "multiply", "divide", "number", "shape", "color", "size", "big", "small", "long"];
+  var basicWords = [
+    "love", "ring", "kiss", "hug", "heart", "wife", "husband", "baby",
+    "cake", "date", "gift", "sing", "city", "food", "chin", "joy", "wine",
+    "singapore", "vow", "chef", "park", "smile", "dear", "moon", "sun",
+    "fun", "rose", "silk", "beach", "gaze", "view", "star", "boat", "life",
+    "blue", "gold", "pink", "ring", "walk", "talk", "book", "pen", "song",
+    "wish", "rain", "luck", "soup", "lunch", "swim", "play", "club", "bar",
+    "ring", "wife", "husband", "cake", "sing", "wine", "park", "dear", "star",
+    "moon", "rose", "blue", "gold", "pink", "ring", "talk", "book", "song",
+    "rain", "luck", "soup", "club", "bar", "love", "kiss", "hug", "baby",
+    "date", "gift", "sing", "food", "chin", "dance", "party", "wine", "chef",
+    "park", "smile", "dear", "sun", "rose", "beach", "view", "moon", "boat",
+    "blue", "gold", "pink", "ring", "talk", "wish", "luck", "play", "ring",
+    "cake", "sing", "moon", "rose", "pink", "wish", "soup", "club", "love",
+    "kiss", "baby", "date", "sing", "food", "joy", "wine", "singapore", "vow",
+    "chef", "park", "moon", "star", "rose", "blue", "pen", "wish", "rain",
+    "luck", "club", "bar", "or", "if", "and", "not", "the", "is", "in", "to",
+    "of", "for", "at", "an", "on", "with", "as", "by", "it", "you", "be",
+    "we", "he", "she", "they", "etc", "our", "my", "your", "his", "her", "its",
+    "their", "some", "any", "all", "one", "two", "red", "green", "blue", "yellow",
+    "black", "white", "hot", "cold", "old", "new", "big", "small", "high", "low",
+    "fast", "slow", "early", "late", "hard", "soft", "thin", "thick", "rich", "poor",
+    "happy", "sad", "true", "false", "right", "wrong", "up", "down", "here", "there",
+    "now", "then", "soon", "never", "always", "maybe", "often", "seldom", "today", "tomorrow",
+    "yesterday", "tonight", "morning", "evening", "afternoon", "night", "nowadays", "somewhere",
+    "anywhere", "everywhere", "nowhere", "sometimes", "always", "together", "apart", "again", "away",
+    "back", "downstairs", "upstairs", "inside", "outside", "under", "over", "near", "far", "almost",
+    "also", "already", "very", "so", "too", "quite", "well", "nevertheless", "however", "therefore",
+    "meanwhile", "before", "after", "while", "since", "until", "because", "although", "though", "unless",
+    "if", "else", "either", "neither", "both", "nor", "even", "only", "just", "still", "even",
+    "almost", "all", "none", "some", "much", "many", "few", "several", "enough", "more", "less",
+    "little", "most", "least", "only", "always", "often", "sometimes", "rarely", "usually", "never",
+    "perhaps", "maybe", "almost", "certainly", "probably", "perhaps", "might", "may", "can", "could",
+    "will", "would", "shall", "should", "must", "ought", "dare", "need", "have", "has", "had",
+    "do", "does", "did", "am", "is", "are", "was", "were", "be", "been", "being", "he", "she", "we", "they"
+];
+
   
   if(diff==1){
     wordArray = basicWords;
