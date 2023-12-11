@@ -10,6 +10,10 @@ const sixty = document.getElementById("sixty");
 const beg = document.getElementById("beg");
 const pro = document.getElementById("pro");
 
+window.onload = function() {
+    loadLeaderboard();
+};
+
 // Function to prompt for user name
 function promptForUserName() {
     var userName = prompt("Please enter your name"); // Prompt for user name
@@ -174,14 +178,6 @@ function currentWord(){
 
 }
 
-// Update and display leaderboard
-function updateLeaderboard() {
-    let { percentageAcc, wpm } = calculateScore();
-    leaderboard.push({ name: userName, accuracy: percentageAcc, wpm: wpm });
-    // Sort by WPM for ranking, you might want to change the sorting criteria
-    leaderboard.sort((a, b) => b.wpm - a.wpm); 
-    displayLeaderboard();
-}
 
 // Calculate the score
 function calculateScore() {
@@ -189,6 +185,39 @@ function calculateScore() {
     let wpm = factor * wordsCorrect; // Calculate WPM
     return { percentageAcc, wpm };
 }
+
+
+function saveLeaderboard() {
+    try {
+        localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+    } catch (e) {
+        console.error("Error saving leaderboard to localStorage:", e);
+    }
+}
+
+function loadLeaderboard() {
+    let savedLeaderboard = localStorage.getItem('leaderboard');
+    if (savedLeaderboard) {
+        try {
+            leaderboard = JSON.parse(savedLeaderboard);
+            displayLeaderboard();
+        } catch (e) {
+            console.error("Error loading leaderboard from localStorage:", e);
+        }
+    }
+}
+// Update and display leaderboard
+function updateLeaderboard() {
+    let { percentageAcc, wpm } = calculateScore();
+    leaderboard.push({ name: userName, accuracy: percentageAcc, wpm: wpm });
+    leaderboard.sort((a, b) => b.wpm - a.wpm); 
+    displayLeaderboard();
+    saveLeaderboard(); // Save updated leaderboard to local storage
+}
+
+
+
+
 
 // Display the leaderboard
 function displayLeaderboard() {
@@ -198,6 +227,9 @@ function displayLeaderboard() {
         leaderboardElement.innerHTML += `<p>${entry.name}: ${entry.accuracy}% Acc, ${entry.wpm} WPM</p>`;
     });
 }
+
+
+
 //checks word entered
 function checkWord(){
   const wordEntered = inputItem.value;
@@ -276,15 +308,7 @@ function randomWords(diff){
     "tropics", "coconut", "mango", "papaya", "bamboo", "hibiscus", "sunset", "sunrise", "rainfall", "lagoon", "reef", "toucan", "gecko", "parrotfish", "tigerbalm",
     "beachvolleyball", "waterski", "kitesurf", "beachparty", "tan", "scubadiving", "fishing", "canoeing", "yachting", "jetski", "seabreeze", "sandcastle", "beachtowel", "flipflops", "beachball"
 ];
-  var basicWords = [ "kenneth", "clarissa", "angpow", "diamond", "wedding", "ceremony", "bride", "groom", "bouquet", "vows", "celebration", "reception", "engagement", "honeymoon", "nuptials", "banquet", "toast", "rings", "anniversary",
-    "singapore", "marinabay", "sentosa", "orchardroad", "merlion", "hawkercenter", "laksa", "durian", "chillicrab", "gardensbythebay", "littleindia", "chinatown", "hdb", "mrt", "lioncity",
-    "tropical", "humidity", "rainforest", "equator", "monsoon", "palm", "mangrove", "jungle", "exotic", "paradise", "climate", "flora", "fauna", "island", "ocean",
-    "beach", "sand", "waves", "sunbathing", "coral", "shoreline", "seashells", "coastline", "tide", "surfing", "sunscreen", "bikini", "snorkeling", "boardwalk", "seaside",
-    "altar", "aisle", "bestman", "bridesmaid", "catering", "florist", "photographer", "weddingcake", "firstdance", "bachelorparty", "bridalshower", "dress", "suit", "veil", "weddingplanner",
-    "esplanade", "satay", "rotiprata", "kayatoast", "tehtarik", "clarkequay", "pulauubin", "botanicgardens", "nightzoo", "singlish", "supertree", "rooftopbar", "cityscape", "skyscraper", "cuisine",
-    "tropics", "coconut", "mango", "papaya", "bamboo", "hibiscus", "sunset", "sunrise", "rainfall", "lagoon", "reef", "toucan", "gecko", "parrotfish", "tigerbalm",
-    "beachvolleyball", "waterski", "kitesurf", "beachparty", "tan", "scubadiving", "fishing", "canoeing", "yachting", "jetski", "seabreeze", "sandcastle", "beachtowel", "flipflops", "beachball"
-];
+  var basicWords = ["cat", "dog", "sun", "moon", "star", "tree", "bird", "fish", "book", "road", "rain", "snow", "leaf", "wind", "sand", "rock", "hill", "lake", "river", "sea", "sky", "cloud", "grass", "flower", "fruit", "apple", "orange", "grape", "pear", "plum", "peach", "cherry", "berry", "melon", "corn", "rice", "bread", "milk", "cheese", "egg", "meat", "fish", "cake", "pie", "tea", "coffee", "juice", "water", "soda", "chair", "table", "bed", "sofa", "lamp", "door", "window", "house", "room", "wall", "floor", "roof", "yard", "garden", "fence", "gate", "path", "road", "street", "town", "city", "school", "class", "teacher", "student", "book", "pen", "pencil", "paper", "note", "exam", "test", "grade", "lesson", "study", "learn", "read", "write", "spell", "count", "add", "subtract", "multiply", "divide", "number", "shape", "color", "size", "big", "small", "long"];
   
   if(diff==1){
     wordArray = basicWords;
